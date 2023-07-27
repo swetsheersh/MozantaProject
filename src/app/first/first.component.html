@@ -1,0 +1,106 @@
+<div class="container-fluid p-5 bg-primary text-white text-center">
+    <h1>MOZANTA STUDENT PORTAL</h1>
+    <h4 *ngIf="admId==0" style="color: whitesmoke;font-family: cursive;">Invalid Input!! Try Again</h4>
+</div>
+<div class="mt-1">
+    <div class="first">
+        <div class="row">
+        <div class="col-sm-10 offset-md-1 p-1 mt-3 ml-5 card bg-info">
+            <div class="card-header text-center text-white">
+                <h3>New Admission</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" formControlName="name">
+                    </div>
+                    <div class="form-group">
+                      <!--<label for="exampleInputName">Class</label>
+                      <input type="text" class="form-control" id="exampleInputName" placeholder="Class" formControlName="class">
+                      -->
+                      <label>Class</label>
+                      <select class="form-select" aria-label="Default select example" placeholder="Open this select class" formControlName="clas">
+                        <option selected="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputsection">Division</label>
+                        <input type="text" class="form-control" id="exampleInputsection" placeholder="Result" formControlName="division">
+                    </div>
+                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                        <label for="example">D.O.B</label>
+                        <input placeholder="D.O.B" type="date" id="example" class="form-control" formControlName="dob">
+                    </div>
+                    <div class="form-group mt-1">
+                        <label>Gender</label>
+                        <div class="form-check form-check-inline mx-3">
+                            <input class="form-check-input" type="radio"  id="inlineRadio1" value="Male" formControlName="gender">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio"  id="inlineRadio2" value="Female" formControlName="gender">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio"  id="inlineRadio3" value="Other" formControlName="gender">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                          </div>
+                    </div>
+                    <div class=" mt-1">
+                    <button type="submit" class="btn btn-outline-danger" [disabled]="!reactiveForm.valid">Submit</button>
+                    </div>
+                  </form>
+            </div>
+            <div class="card-footer">
+                <p class="text-warning text-center"><b>Admission id: {{admId}} </b></p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="second" >
+        <div class="col-sm-10 offset-md-1 p-1 mt-3 ml-5 card bg-warning">
+            <div class="card-header text-center text-white">
+                <h3>Students</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">D.O.B</th>
+                        <th scope="col">Gender</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let i of data">
+                        <th scope="row">{{i.id}}</th>
+                        <td>{{i.name}}</td>
+                        <td>{{i.clas}}</td>
+                        <td>{{i.division}}</td>
+                        <td>{{i.dob}}</td>
+                        <td>{{i.gender}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>

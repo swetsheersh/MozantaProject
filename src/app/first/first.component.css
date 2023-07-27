@@ -1,0 +1,28 @@
+.first{
+    width: 50%;
+    background-color: aquamarine;
+    border: 2px thick red ;
+    height: 520px;
+    position: relative;
+    /*float: left;*/
+    display: inline-block;
+
+}
+.second{
+    width:50%;
+    background-color: cadetblue;
+    height: 520px;
+    position: relative;
+    /*float: right;*/
+    display: inline-block;
+}
+/*.card{
+    margin: 10px 10px;
+    width: 70%;
+}*/
+input.ng-touched.ng-invalid{
+    border: 2px double red;
+}
+select.ng-touched.ng-invalid{
+    border: 2px double red;
+}
